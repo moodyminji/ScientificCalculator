@@ -52,24 +52,25 @@ public class ScienteficCalculator {
                     System.out.println("Result: " + mul(prompt(SC), prompt(SC)));
                     break;
                 case 4:
-                    double d1 = prompt(SC), double d2 = prompt(SC)
-                    System.out.println("Result: " + (d2 != 0 ? div(d1, d2) + "Error : Division by Zero is not Possible")); break;
-                break;
+                    double d1 = prompt(SC), d2 = prompt(SC);
+                    System.out.println("Result: " + (d2 != 0 ? div(d1, d2) : "Error: Division by zero"));
+                    break;
+
                 case 5:
                     double sqrtNum = prompt(SC);
                     System.out.println("Result: " + (sqrtNum >= 0 ? calculateSquareRoot(sqrtNum) : "Error: Negative input"));
                     break;
                 case 6:
-                    System.out.println("Result: " + calculatePower(prompt(scanner), prompt(scanner)));
+                    System.out.println("Result: " + calculatePower(prompt(SC), prompt(SC)));
                     break;
                 case 7:
-                    System.out.println("Result: " + calculateSine(prompt(scanner)));
+                    System.out.println("Result: " + calculateSine(prompt(SC)));
                     break;
                 case 8:
-                    System.out.println("Result: " + calculateCosine(prompt(scanner)));
+                    System.out.println("Result: " + calculateCosine(prompt(SC)));
                     break;
                 case 9:
-                    double angle = prompt(scanner);
+                    double angle = prompt(SC);
                     if (angle % 180 == 90) {
                         System.out.println("Error: Tangent undefined at " + angle + "°");
                     } else {
@@ -77,30 +78,30 @@ public class ScienteficCalculator {
                     }
                     break;
                 case 10:
-                    double lnInput = prompt(scanner);
+                    double lnInput = prompt(SC);
                     System.out.println("Result: " + (lnInput > 0 ? calculateNaturalLogarithm(lnInput) : "Error: Non-positive input"));
                     break;
                 case 11:
-                    double log10Input = prompt(scanner);
+                    double log10Input = prompt(SC);
                     System.out.println("Result: " + (log10Input > 0 ? calculateLogarithmBase10(log10Input) : "Error: Non-positive input"));
                     break;
                 case 12:
-                    System.out.println("Result: " + Math.abs(prompt(scanner)));
+                    System.out.println("Result: " + Math.abs(prompt(SC)));
                     break;
                 case 13:
-                    System.out.println("Result: " + roundNumber(prompt(scanner)));
+                    System.out.println("Result: " + roundNumber(prompt(SC)));
                     break;
                 case 14:
-                    System.out.println("Result: " + ceilingNumber(prompt(scanner)));
+                    System.out.println("Result: " + ceilingNumber(prompt(SC)));
                     break;
                 case 15:
-                    System.out.println("Result: " + floorNumber(prompt(scanner)));
+                    System.out.println("Result: " + floorNumber(prompt(SC)));
                     break;
                 case 16:
-                    System.out.println("Result: " + findMin(prompt(scanner), prompt(scanner)));
+                    System.out.println("Result: " + findMin(prompt(SC), prompt(SC)));
                     break;
                 case 17:
-                    System.out.println("Result: " + findMax(prompt(scanner), prompt(scanner)));
+                    System.out.println("Result: " + findMax(prompt(SC), prompt(SC)));
                     break;
                 default:
                     System.out.println("Invalid choice. Please select a valid option.");
@@ -122,8 +123,26 @@ public class ScienteficCalculator {
     public static double mul(double num1, double num2) { return num1 * num2; }
     public static double div(double num1, double num2) { return num1 / num2; }
 
+    public static double calculateSquareRoot(double num) { return Math.sqrt(num); }
+    public static double calculatePower(double base, double exponent) { return Math.pow(base, exponent); }
 
+    public static double calculateSine(double degrees) { return Math.sin(Math.toRadians(degrees)); }
+    public static double calculateCosine(double degrees) { return Math.cos(Math.toRadians(degrees)); }
+    public static double calculateTangent(double degrees) { return Math.tan(Math.toRadians(degrees)); }
 
+    public static double calculateNaturalLogarithm(double num) { return Math.log(num); }
+    public static double calculateLogarithmBase10(double num) { return Math.log10(num); }
+
+    public static long roundNumber(double num) { return Math.round(num); }
+    public static double ceilingNumber(double num) { return Math.ceil(num); }
+    public static double floorNumber(double num) { return Math.floor(num); }
+
+    public static double findMin(double num1, double num2) { return Math.min(num1, num2); }
+    public static double findMax(double num1, double num2) { return Math.max(num1, num2); }
 }
-    
+
+
+
+
+
 
