@@ -109,11 +109,21 @@ public class ScienteficCalculator {
             System.out.println("Invalid input. Please enter numeric values.");
             SC.next();
         }
-        private static double prompt (Scanner SC){
-            System.out.print("Enter number: ");
-            return SC.nextDouble();
+
 
         }
-
+    private static double prompt(Scanner SC){
+        System.out.print("Enter number: ");
+        return SC.nextDouble();
     }
+    // calculation methods that will be used for performing operations
+    public static double add(double num1, double num2) { return num1 + num2; }
+    public static double sub(double num1, double num2) { return num1 - num2; }
+    public static double mul(double num1, double num2) { return num1 * num2; }
+    public static double div(double num1, double num2) { return num1 / num2; }
+
+
+
 }
+    
+
