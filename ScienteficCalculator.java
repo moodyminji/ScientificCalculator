@@ -42,7 +42,19 @@ public class ScienteficCalculator {
     private static void performOperation(Scanner SC, int choice) {
     try{
         switch(choice){
-            case 1 : System.out.println("Result: "+ add(prompt(SC)));
+            case 1 : System.out.println("Result: "+ add(prompt(SC), prompt(SC))); break;
+            case 2 : System.out.println("Result: "+ sub(prompt(SC), prompt(SC))); break;
+            case 3 : System.out.println("Result: "+ mul(prompt(SC), prompt(SC))); break;
+            case 4 :
+                double d1 = prompt(SC), double d2 = prompt(SC)
+                System.out.println("Result: "+ (d2 != 0 ? div(d1, d2) + "Error : Division by Zero is not Possible")); break;
+                break;
+            case 5:
+                double sqrtNum = prompt(SC);
+                System.out.println("Result: " + (sqrtNum >= 0 ? calculateSquareRoot(sqrtNum) : "Error: Negative input"));
+                break;
+            case 6: System.out.println("Result: " + calculatePower(prompt(scanner), prompt(scanner))); break;
+
         }
     }
     }
