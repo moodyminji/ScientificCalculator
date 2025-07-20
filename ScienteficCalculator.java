@@ -40,24 +40,80 @@ public class ScienteficCalculator {
     }
 
     private static void performOperation(Scanner SC, int choice) {
-    try{
-        switch(choice){
-            case 1 : System.out.println("Result: "+ add(prompt(SC), prompt(SC))); break;
-            case 2 : System.out.println("Result: "+ sub(prompt(SC), prompt(SC))); break;
-            case 3 : System.out.println("Result: "+ mul(prompt(SC), prompt(SC))); break;
-            case 4 :
-                double d1 = prompt(SC), double d2 = prompt(SC)
-                System.out.println("Result: "+ (d2 != 0 ? div(d1, d2) + "Error : Division by Zero is not Possible")); break;
+        try {
+            switch (choice) {
+                case 1:
+                    System.out.println("Result: " + add(prompt(SC), prompt(SC)));
+                    break;
+                case 2:
+                    System.out.println("Result: " + sub(prompt(SC), prompt(SC)));
+                    break;
+                case 3:
+                    System.out.println("Result: " + mul(prompt(SC), prompt(SC)));
+                    break;
+                case 4:
+                    double d1 = prompt(SC), double d2 = prompt(SC)
+                    System.out.println("Result: " + (d2 != 0 ? div(d1, d2) + "Error : Division by Zero is not Possible")); break;
                 break;
-            case 5:
-                double sqrtNum = prompt(SC);
-                System.out.println("Result: " + (sqrtNum >= 0 ? calculateSquareRoot(sqrtNum) : "Error: Negative input"));
-                break;
-            case 6: System.out.println("Result: " + calculatePower(prompt(scanner), prompt(scanner))); break;
+                case 5:
+                    double sqrtNum = prompt(SC);
+                    System.out.println("Result: " + (sqrtNum >= 0 ? calculateSquareRoot(sqrtNum) : "Error: Negative input"));
+                    break;
+                case 6:
+                    System.out.println("Result: " + calculatePower(prompt(scanner), prompt(scanner)));
+                    break;
+                case 7:
+                    System.out.println("Result: " + calculateSine(prompt(scanner)));
+                    break;
+                case 8:
+                    System.out.println("Result: " + calculateCosine(prompt(scanner)));
+                    break;
+                case 9:
+                    double angle = prompt(scanner);
+                    if (angle % 180 == 90) {
+                        System.out.println("Error: Tangent undefined at " + angle + "°");
+                    } else {
+                        System.out.println("Result: " + calculateTangent(angle));
+                    }
+                    break;
+                case 10:
+                    double lnInput = prompt(scanner);
+                    System.out.println("Result: " + (lnInput > 0 ? calculateNaturalLogarithm(lnInput) : "Error: Non-positive input"));
+                    break;
+                case 11:
+                    double log10Input = prompt(scanner);
+                    System.out.println("Result: " + (log10Input > 0 ? calculateLogarithmBase10(log10Input) : "Error: Non-positive input"));
+                    break;
+                case 12:
+                    System.out.println("Result: " + Math.abs(prompt(scanner)));
+                    break;
+                case 13:
+                    System.out.println("Result: " + roundNumber(prompt(scanner)));
+                    break;
+                case 14:
+                    System.out.println("Result: " + ceilingNumber(prompt(scanner)));
+                    break;
+                case 15:
+                    System.out.println("Result: " + floorNumber(prompt(scanner)));
+                    break;
+                case 16:
+                    System.out.println("Result: " + findMin(prompt(scanner), prompt(scanner)));
+                    break;
+                case 17:
+                    System.out.println("Result: " + findMax(prompt(scanner), prompt(scanner)));
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please select a valid option.");
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input. Please enter numeric values.");
+            SC.next();
+        }
+        private static double prompt (Scanner SC){
+            System.out.print("Enter number: ");
+            return SC.nextDouble();
 
         }
-    }
-    }
 
+    }
 }
-
